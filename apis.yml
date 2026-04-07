@@ -1,7 +1,11 @@
 aid: applied-materials
-url: https://raw.githubusercontent.com/api-evangelist/applied-materials/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/applied-materials/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.applied-materials.com
+description: >-
+  Applied Materials is a global leader in materials engineering solutions used to
+  produce virtually every new chip and advanced display in the world.
