@@ -1,0 +1,274 @@
+openapi: 3.0.3
+info:
+  title: Applied Materials Equipment Management API
+  description: >-
+    API for managing semiconductor manufacturing equipment from Applied Materials,
+    including equipment status monitoring, maintenance scheduling, and process
+    recipe management for CVD, PVD, CMP, Etch, and other fab equipment.
+  version: 1.0.0
+  contact:
+    name: Applied Materials
+    url: https://www.applied-materials.com
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.applied-materials.com/v1
+    description: Applied Materials Equipment API
+security:
+  - bearerAuth: []
+tags:
+  - name: Equipment
+    description: Semiconductor manufacturing equipment management
+  - name: Maintenance
+    description: Equipment maintenance scheduling and records
+paths:
+  /equipment:
+    get:
+      operationId: listEquipment
+      summary: Applied Materials - List Equipment
+      description: Returns a list of semiconductor manufacturing equipment
+      tags:
+        - Equipment
+      parameters:
+        - name: type
+          in: query
+          description: Filter by equipment type (CVD, PVD, CMP, Etch)
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter by operational status
+          schema:
+            type: string
+            enum: [operational, maintenance, idle, error]
+        - name: location
+          in: query
+          description: Filter by fab location
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of equipment
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Equipment'
+              examples:
+                ListEquipmentExample:
+                  x-microcks-default: true
+                  summary: Example equipment list
+                  value:
+                    data:
+                      - equipmentId: AMAT-CVD-0042
+                        serialNumber: CVD-2022-042-SN
+                        model: Centura 5200
+                        type: CVD
+                        status: operational
+                        location: Fab 1 Bay 3
+        '401':
+          description: Unauthorized - invalid or missing authentication token
+  /equipment/{equipmentId}:
+    get:
+      operationId: getEquipment
+      summary: Applied Materials - Get Equipment
+      description: Returns details for a specific piece of equipment
+      tags:
+        - Equipment
+      parameters:
+        - name: equipmentId
+          in: path
+          required: true
+          description: Unique equipment identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Equipment details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Equipment'
+              examples:
+                GetEquipmentExample:
+                  x-microcks-default: true
+                  summary: Example equipment detail
+                  value:
+                    equipmentId: AMAT-CVD-0042
+                    serialNumber: CVD-2022-042-SN
+                    model: Centura 5200
+                    type: CVD
+                    status: operational
+                    location: Fab 1 Bay 3
+                    installDate: "2022-06-15"
+                    lastMaintenanceDate: "2026-01-10"
+        '404':
+          description: Equipment not found
+        '401':
+          description: Unauthorized - invalid or missing authentication token
+  /maintenance:
+    get:
+      operationId: listMaintenanceRecords
+      summary: Applied Materials - List Maintenance Records
+      description: Returns a list of maintenance records for equipment
+      tags:
+        - Maintenance
+      parameters:
+        - name: equipmentId
+          in: query
+          description: Filter by equipment identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of maintenance records
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MaintenanceRecord'
+              examples:
+                ListMaintenanceExample:
+                  x-microcks-default: true
+                  summary: Example maintenance records list
+                  value:
+                    data:
+                      - recordId: MR-2026-0001
+                        equipmentId: AMAT-CVD-0042
+                        type: scheduled
+                        scheduledDate: "2026-07-01"
+                        status: pending
+        '401':
+          description: Unauthorized - invalid or missing authentication token
+    post:
+      operationId: scheduleMaintenace
+      summary: Applied Materials - Schedule Maintenance
+      description: Schedules a maintenance event for a piece of equipment
+      tags:
+        - Maintenance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaintenanceRequest'
+            examples:
+              ScheduleMaintenanceExample:
+                x-microcks-default: true
+                summary: Example maintenance scheduling request
+                value:
+                  equipmentId: AMAT-CVD-0042
+                  type: scheduled
+                  scheduledDate: "2026-07-01"
+                  notes: Quarterly preventive maintenance
+      responses:
+        '201':
+          description: Maintenance record created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaintenanceRecord'
+        '400':
+          description: Invalid request body
+        '401':
+          description: Unauthorized - invalid or missing authentication token
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Equipment:
+      title: Equipment
+      description: Semiconductor manufacturing equipment
+      type: object
+      properties:
+        equipmentId:
+          type: string
+          description: Unique equipment identifier
+        serialNumber:
+          type: string
+          description: Equipment serial number
+        model:
+          type: string
+          description: Equipment model name
+        type:
+          type: string
+          description: Equipment type (CVD, PVD, CMP, Etch, etc.)
+        status:
+          type: string
+          enum: [operational, maintenance, idle, error]
+          description: Current operational status
+        location:
+          type: string
+          description: Fab location where equipment is installed
+        installDate:
+          type: string
+          format: date
+          description: Date equipment was installed
+        lastMaintenanceDate:
+          type: string
+          format: date
+          description: Date of last scheduled maintenance
+    MaintenanceRecord:
+      title: MaintenanceRecord
+      description: A maintenance event record for semiconductor equipment
+      type: object
+      properties:
+        recordId:
+          type: string
+          description: Unique maintenance record identifier
+        equipmentId:
+          type: string
+          description: Equipment being maintained
+        type:
+          type: string
+          enum: [scheduled, emergency, calibration]
+          description: Type of maintenance
+        scheduledDate:
+          type: string
+          format: date
+          description: Date maintenance is scheduled
+        completedDate:
+          type: string
+          format: date
+          description: Date maintenance was completed
+        status:
+          type: string
+          enum: [pending, in-progress, completed, cancelled]
+          description: Maintenance record status
+        notes:
+          type: string
+          description: Maintenance notes and observations
+    MaintenanceRequest:
+      title: MaintenanceRequest
+      description: Request body for scheduling equipment maintenance
+      type: object
+      required:
+        - equipmentId
+        - type
+        - scheduledDate
+      properties:
+        equipmentId:
+          type: string
+          description: Equipment to schedule maintenance for
+        type:
+          type: string
+          enum: [scheduled, emergency, calibration]
+          description: Type of maintenance to schedule
+        scheduledDate:
+          type: string
+          format: date
+          description: Date to schedule the maintenance
+        notes:
+          type: string
+          description: Additional notes about the maintenance

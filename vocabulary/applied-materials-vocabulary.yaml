@@ -1,0 +1,113 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Applied Materials
+  description: >-
+    Vocabulary for the Applied Materials semiconductor equipment management platform,
+    covering equipment lifecycle, maintenance scheduling, and process management for
+    CVD, PVD, CMP, Etch, and other semiconductor manufacturing tools.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Applied Materials API
+      namespace: amat
+      version: "1.0.0"
+      baseUrl: "https://api.applied-materials.com/v1"
+      status: active
+
+  resources:
+    - name: equipment
+      description: Semiconductor manufacturing equipment (tools)
+      api: Applied Materials API
+      actions:
+        - list
+        - get
+    - name: maintenance
+      description: Equipment maintenance records and scheduling
+      api: Applied Materials API
+      actions:
+        - list
+        - create
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Equipment
+        description: Semiconductor manufacturing equipment with status and location
+      - name: MaintenanceRecord
+        description: Record of a scheduled or completed maintenance event
+      - name: MaintenanceRequest
+        description: Request payload for scheduling equipment maintenance
+
+  parameters:
+    identifiers:
+      - name: equipmentId
+        description: Unique equipment identifier
+      - name: recordId
+        description: Unique maintenance record identifier
+    filters:
+      - name: type
+        description: Equipment type filter (CVD, PVD, CMP, Etch)
+      - name: status
+        description: Equipment operational status filter
+
+  enums:
+    equipmentTypes:
+      - CVD
+      - PVD
+      - CMP
+      - Etch
+      - Implant
+      - Lithography
+      - Inspection
+    equipmentStatuses:
+      - operational
+      - maintenance
+      - idle
+      - error
+    maintenanceTypes:
+      - scheduled
+      - emergency
+      - calibration
+
+  authentication:
+    schemes:
+      - type: bearer
+        description: Bearer token authentication for API access
+
+capability:
+  workflows:
+    - name: Equipment Monitoring
+      description: Monitor fab equipment status and manage maintenance schedules
+      resources:
+        - equipment
+        - maintenance
+  personas:
+    - name: Fab Engineer
+      description: Engineers overseeing semiconductor equipment operation and performance
+    - name: Maintenance Technician
+      description: Technicians performing scheduled and emergency equipment maintenance
+  domains:
+    - name: Equipment Management
+      description: Tracking and monitoring semiconductor manufacturing equipment
+      resources:
+        - equipment
+    - name: Maintenance Management
+      description: Scheduling and recording equipment maintenance activities
+      resources:
+        - maintenance
+
+  namespaces: []
+  binds: []

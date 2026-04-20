@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "amat": "https://www.applied-materials.com/vocab#",
+    "equipmentId": "schema:identifier",
+    "serialNumber": "schema:serialNumber",
+    "model": "schema:model",
+    "type": "schema:category",
+    "status": "amat:status",
+    "location": "schema:location",
+    "installDate": "schema:dateCreated",
+    "lastMaintenanceDate": "amat:lastMaintenanceDate",
+    "recordId": "schema:identifier",
+    "scheduledDate": "amat:scheduledDate",
+    "completedDate": "amat:completedDate",
+    "notes": "schema:description"
+  }
+}

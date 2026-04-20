@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/applied-materials/main/json-schema/equipment-schema.json",
+  "title": "Equipment",
+  "description": "Semiconductor manufacturing equipment managed by Applied Materials",
+  "type": "object",
+  "properties": {
+    "equipmentId": {
+      "type": "string",
+      "description": "Unique equipment identifier"
+    },
+    "serialNumber": {
+      "type": "string",
+      "description": "Equipment serial number"
+    },
+    "model": {
+      "type": "string",
+      "description": "Equipment model name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Equipment type (CVD, PVD, CMP, Etch, etc.)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "operational",
+        "maintenance",
+        "idle",
+        "error"
+      ],
+      "description": "Current operational status"
+    },
+    "location": {
+      "type": "string",
+      "description": "Fab location where equipment is installed"
+    },
+    "installDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date equipment was installed"
+    },
+    "lastMaintenanceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last scheduled maintenance"
+    }
+  },
+  "required": [
+    "equipmentId",
+    "serialNumber",
+    "model",
+    "type",
+    "status"
+  ]
+}

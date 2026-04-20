@@ -1,30 +1,53 @@
 # Applied Materials (applied-materials)
-Applied Materials is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for Applied Materials.
+
+Applied Materials is a global leader in materials engineering solutions used to produce virtually every new chip and advanced display in the world. They provide semiconductor manufacturing equipment, services, and software for CVD, PVD, CMP, Etch, implant, and other fab processes.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/applied-materials/refs/heads/main/apis.yml)
 
-## Scope
+## Scope of Coverage
 
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+| Item | Count |
+|------|-------|
+| APIs | 1 |
+| OpenAPI Specs | 1 |
+| JSON Schemas | 1 |
+| JSON Structures | 1 |
+| Examples | 1 |
+| JSON-LD Contexts | 1 |
+| Spectral Rulesets | 1 |
+| Naftiko Capabilities | 2 |
+| Vocabularies | 1 |
 
-## Tags:
+## APIs Covered
 
- - Fortune 500
+- **Applied Materials API** — Equipment management API for semiconductor manufacturing tools, maintenance scheduling, and fab operations.
 
-## Timestamps
+## Artifacts
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-03-21
+### OpenAPI Specifications
+- [openapi/applied-materials-openapi.yaml](openapi/applied-materials-openapi.yaml)
 
-## APIs
+### JSON Schemas
+- [json-schema/equipment-schema.json](json-schema/equipment-schema.json)
 
-No public APIs have been documented yet. Contributions welcome.
+### JSON Structures
+- [json-structure/equipment-structure.json](json-structure/equipment-structure.json)
 
-## Common Properties
+### Examples
+- [examples/equipment-example.json](examples/equipment-example.json)
 
-- [Website](https://www.applied-materials.com)
+### JSON-LD
+- [json-ld/applied-materials-context.jsonld](json-ld/applied-materials-context.jsonld)
+
+### Spectral Rules
+- [rules/applied-materials-spectral-rules.yml](rules/applied-materials-spectral-rules.yml)
+
+### Naftiko Capabilities
+- [capabilities/shared/applied-materials-api.yaml](capabilities/shared/applied-materials-api.yaml)
+- [capabilities/equipment-monitoring.yaml](capabilities/equipment-monitoring.yaml)
+
+### Vocabulary
+- [vocabulary/applied-materials-vocabulary.yaml](vocabulary/applied-materials-vocabulary.yaml)
 
 ## Maintainers
 

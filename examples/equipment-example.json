@@ -1,0 +1,10 @@
+{
+  "equipmentId": "AMAT-CVD-0042",
+  "serialNumber": "CVD-2022-042-SN",
+  "model": "Centura 5200",
+  "type": "CVD",
+  "status": "operational",
+  "location": "Fab 1 Bay 3",
+  "installDate": "2022-06-15",
+  "lastMaintenanceDate": "2026-01-10"
+}
