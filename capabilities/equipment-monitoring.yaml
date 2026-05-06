@@ -1,78 +1,127 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
   label: Applied Materials Equipment Monitoring
-  description: >-
-    Workflow capability for monitoring and maintaining semiconductor manufacturing
-    equipment from Applied Materials. Supports fab operations teams tracking
-    equipment status and scheduling preventive maintenance.
+  description: Workflow capability for monitoring and maintaining semiconductor manufacturing equipment from Applied Materials.
+    Supports fab operations teams tracking equipment status and scheduling preventive maintenance.
   tags:
-    - Applied Materials
-    - Semiconductor
-    - Manufacturing
-    - Equipment Monitoring
-  created: "2026-04-19"
-  modified: "2026-04-19"
-
+  - Applied Materials
+  - Semiconductor
+  - Manufacturing
+  - Equipment Monitoring
+  created: '2026-04-19'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      AMAT_API_TOKEN: AMAT_API_TOKEN
-
+- namespace: env
+  keys:
+    AMAT_API_TOKEN: AMAT_API_TOKEN
 capability:
   consumes:
-    - import: amat
-      location: ./shared/applied-materials-api.yaml
-
+  - type: http
+    namespace: amat
+    baseUri: https://api.applied-materials.com/v1
+    description: Applied Materials equipment management API
+    authentication:
+      type: bearer
+      token: '{{AMAT_API_TOKEN}}'
+    resources:
+    - name: equipment
+      path: /equipment
+      description: Semiconductor manufacturing equipment
+      operations:
+      - name: list-equipment
+        method: GET
+        description: Returns a list of manufacturing equipment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-equipment
+        method: GET
+        description: Returns details for a specific piece of equipment
+        inputParameters:
+        - name: equipmentId
+          in: path
+          type: string
+          required: true
+          description: Equipment identifier
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: maintenance
+      path: /maintenance
+      description: Equipment maintenance records
+      operations:
+      - name: list-maintenance
+        method: GET
+        description: Returns maintenance records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: schedule-maintenance
+        method: POST
+        description: Schedules a maintenance event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            equipmentId: '{{tools.equipmentId}}'
+            type: '{{tools.type}}'
+            scheduledDate: '{{tools.scheduledDate}}'
   exposes:
-    - type: mcp
-      port: 9090
-      namespace: equipment-monitoring-mcp
-      transport: http
-      description: MCP server for AI-assisted semiconductor equipment monitoring.
-      tools:
-        - name: list-fab-equipment
-          description: Lists all semiconductor manufacturing equipment in the fab
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "amat.list-equipment"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: check-equipment-status
-          description: Checks the operational status of a specific piece of fab equipment
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "amat.get-equipment"
-          with:
-            equipmentId: "tools.equipmentId"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: view-maintenance-history
-          description: Views maintenance history and upcoming scheduled maintenance for equipment
-          hints:
-            readOnly: true
-            idempotent: true
-          call: "amat.list-maintenance"
-          outputParameters:
-            - type: object
-              mapping: "$."
-
-        - name: schedule-preventive-maintenance
-          description: Schedules preventive maintenance for semiconductor manufacturing equipment
-          hints:
-            readOnly: false
-            destructive: false
-          call: "amat.schedule-maintenance"
-          with:
-            equipmentId: "tools.equipmentId"
-            type: "tools.type"
-            scheduledDate: "tools.scheduledDate"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: mcp
+    port: 9090
+    namespace: equipment-monitoring-mcp
+    transport: http
+    description: MCP server for AI-assisted semiconductor equipment monitoring.
+    tools:
+    - name: list-fab-equipment
+      description: Lists all semiconductor manufacturing equipment in the fab
+      hints:
+        readOnly: true
+        idempotent: true
+      call: amat.list-equipment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-equipment-status
+      description: Checks the operational status of a specific piece of fab equipment
+      hints:
+        readOnly: true
+        idempotent: true
+      call: amat.get-equipment
+      with:
+        equipmentId: tools.equipmentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: view-maintenance-history
+      description: Views maintenance history and upcoming scheduled maintenance for equipment
+      hints:
+        readOnly: true
+        idempotent: true
+      call: amat.list-maintenance
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: schedule-preventive-maintenance
+      description: Schedules preventive maintenance for semiconductor manufacturing equipment
+      hints:
+        readOnly: false
+        destructive: false
+      call: amat.schedule-maintenance
+      with:
+        equipmentId: tools.equipmentId
+        type: tools.type
+        scheduledDate: tools.scheduledDate
+      outputParameters:
+      - type: object
+        mapping: $.
