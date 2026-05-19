@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Applied Materials Equipment Management API — Maintenance
+  description: 'Applied Materials Equipment Management API — Maintenance. 2 operations. Lead operation: Applied Materials
+    - List Maintenance Records. Self-contained Naftiko capability covering one Applied Materials business surface.'
+  tags:
+  - Applied Materials
+  - Maintenance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APPLIED_MATERIALS_API_KEY: APPLIED_MATERIALS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: applied-materials-maintenance
+    baseUri: https://api.applied-materials.com/v1
+    description: Applied Materials Equipment Management API — Maintenance business capability. Self-contained, no shared references.
+    resources:
+    - name: maintenance
+      path: /maintenance
+      operations:
+      - name: listmaintenancerecords
+        method: GET
+        description: Applied Materials - List Maintenance Records
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: equipmentId
+          in: query
+          type: string
+          description: Filter by equipment identifier
+      - name: schedulemaintenace
+        method: POST
+        description: Applied Materials - Schedule Maintenance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.APPLIED_MATERIALS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: applied-materials-maintenance-rest
+    port: 8080
+    description: REST adapter for Applied Materials Equipment Management API — Maintenance. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/maintenance
+      name: maintenance
+      description: REST surface for maintenance.
+      operations:
+      - method: GET
+        name: listmaintenancerecords
+        description: Applied Materials - List Maintenance Records
+        call: applied-materials-maintenance.listmaintenancerecords
+        with:
+          equipmentId: rest.equipmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: schedulemaintenace
+        description: Applied Materials - Schedule Maintenance
+        call: applied-materials-maintenance.schedulemaintenace
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: applied-materials-maintenance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Applied Materials Equipment Management API — Maintenance. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: applied-materials-list-maintenance-records
+      description: Applied Materials - List Maintenance Records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: applied-materials-maintenance.listmaintenancerecords
+      with:
+        equipmentId: tools.equipmentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: applied-materials-schedule-maintenance
+      description: Applied Materials - Schedule Maintenance
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: applied-materials-maintenance.schedulemaintenace
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

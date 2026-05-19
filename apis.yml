@@ -33,6 +33,8 @@ apis:
     type: Vocabulary
   description: API for managing semiconductor manufacturing equipment from Applied Materials, supporting equipment status monitoring and maintenance scheduling in fab environments.
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/applied-materials
 - type: Website
   url: https://www.applied-materials.com
 description: >-
