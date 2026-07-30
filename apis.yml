@@ -1,37 +1,74 @@
 aid: applied-materials
 url: https://raw.githubusercontent.com/api-evangelist/applied-materials/refs/heads/main/apis.yml
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 modified: '2026-04-19'
 apis:
-  - aid: applied-materials:applied-materials-api
-    name: Applied Materials API
-    tags:
-    - Semiconductor
-    - Manufacturing
-    - Equipment
-    - Maintenance
-    humanURL: https://www.applied-materials.com
-    properties:
-    - url: https://www.applied-materials.com
-      type: Website
-    - url: openapi/applied-materials-openapi.yaml
-      type: OpenAPI
-    - url: json-schema/equipment-schema.json
-      type: JSONSchema
-    - url: json-structure/equipment-structure.json
-      type: JSONStructure
-    - url: examples/equipment-example.json
-      type: Examples
-    - url: json-ld/applied-materials-context.jsonld
-      type: JSONLD
-    - url: rules/applied-materials-spectral-rules.yml
-      type: SpectralRules
-    - url: capabilities/shared/applied-materials-api.yaml
-      type: X-NaftikoCapability
-    - url: capabilities/equipment-monitoring.yaml
-      type: X-NaftikoCapability
-    - url: vocabulary/applied-materials-vocabulary.yaml
-      type: Vocabulary
-    description: API for managing semiconductor manufacturing equipment from Applied Materials, supporting equipment status monitoring and maintenance scheduling in fab environments.
+- aid: applied-materials:applied-materials-equipment-api
+  name: Applied Materials Equipment API
+  description: Semiconductor manufacturing equipment management
+  humanURL: https://www.applied-materials.com
+  tags:
+  - Equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/applied-materials-equipment-api-openapi.yml
+  - type: Website
+    url: https://www.applied-materials.com
+  - type: JSONSchema
+    url: json-schema/equipment-schema.json
+  - type: JSONStructure
+    url: json-structure/equipment-structure.json
+  - type: Examples
+    url: examples/equipment-example.json
+  - type: JSONLD
+    url: json-ld/applied-materials-context.jsonld
+  - type: SpectralRules
+    url: rules/applied-materials-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/applied-materials-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/equipment-monitoring.yaml
+  - type: Vocabulary
+    url: vocabulary/applied-materials-vocabulary.yaml
+- aid: applied-materials:applied-materials-maintenance-api
+  name: Applied Materials Maintenance API
+  description: Equipment maintenance scheduling and records
+  humanURL: https://www.applied-materials.com
+  tags:
+  - Maintenance
+  properties:
+  - type: OpenAPI
+    url: openapi/applied-materials-maintenance-api-openapi.yml
+  - type: Website
+    url: https://www.applied-materials.com
+  - type: JSONSchema
+    url: json-schema/equipment-schema.json
+  - type: JSONStructure
+    url: json-structure/equipment-structure.json
+  - type: Examples
+    url: examples/equipment-example.json
+  - type: JSONLD
+    url: json-ld/applied-materials-context.jsonld
+  - type: SpectralRules
+    url: rules/applied-materials-spectral-rules.yml
+  - type: X-NaftikoCapability
+    url: capabilities/shared/applied-materials-api.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/equipment-monitoring.yaml
+  - type: Vocabulary
+    url: vocabulary/applied-materials-vocabulary.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/applied-materials-agentic-access.yml
@@ -53,5 +90,5 @@ tags:
   - Materials Engineering
   - Fortune 500
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/applied-materials.png
 access: 3rd-Party
