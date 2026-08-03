@@ -1,0 +1,16 @@
+{
+  "provider": "applied-materials",
+  "sources": [
+    "applied-materials-equipment-api-openapi.yml",
+    "applied-materials-maintenance-api-openapi.yml"
+  ],
+  "outputs": [
+    "applied-materials-equipment-api-openapi.yml",
+    "applied-materials-maintenance-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
