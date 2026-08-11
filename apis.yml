@@ -36,10 +36,6 @@ apis:
     url: json-ld/applied-materials-context.jsonld
   - type: SpectralRules
     url: rules/applied-materials-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/applied-materials-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/equipment-monitoring.yaml
   - type: Vocabulary
     url: vocabulary/applied-materials-vocabulary.yaml
 - aid: applied-materials:applied-materials-maintenance-api
@@ -63,10 +59,6 @@ apis:
     url: json-ld/applied-materials-context.jsonld
   - type: SpectralRules
     url: rules/applied-materials-spectral-rules.yml
-  - type: X-NaftikoCapability
-    url: capabilities/shared/applied-materials-api.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/equipment-monitoring.yaml
   - type: Vocabulary
     url: vocabulary/applied-materials-vocabulary.yaml
 common:
