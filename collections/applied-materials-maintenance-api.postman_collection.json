@@ -1,0 +1,368 @@
+{
+  "item": [
+    {
+      "id": "c905d02f-8b28-41d8-9372-e439092245cc",
+      "name": "Maintenance",
+      "description": {
+        "content": "Equipment maintenance scheduling and records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "544bb365-6304-44fe-93c6-1ab68131cf21",
+          "name": "Applied Materials - List Maintenance Records",
+          "request": {
+            "name": "Applied Materials - List Maintenance Records",
+            "description": {
+              "content": "Returns a list of maintenance records for equipment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "maintenance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "equipmentId",
+                  "value": "<string>",
+                  "description": "Filter by equipment identifier"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28312034-1893-41f6-a1b8-5df715e8d7af",
+              "name": "A list of maintenance records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "maintenance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"recordId\": \"MR-2026-0001\",\n      \"equipmentId\": \"AMAT-CVD-0042\",\n      \"type\": \"scheduled\",\n      \"scheduledDate\": \"2026-07-01\",\n      \"status\": \"pending\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63a54a22-a92b-4d4c-bedb-3b1793d6660a",
+              "name": "Unauthorized - invalid or missing authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "maintenance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "equipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0607cf0e-f749-46ff-928a-23b5b5a26be6",
+          "name": "Applied Materials - Schedule Maintenance",
+          "request": {
+            "name": "Applied Materials - Schedule Maintenance",
+            "description": {
+              "content": "Schedules a maintenance event for a piece of equipment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "maintenance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"equipmentId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"scheduledDate\": \"<date>\",\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de3bea2e-8076-4594-8c81-dadd9750e713",
+              "name": "Maintenance record created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "maintenance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentId\": \"AMAT-CVD-0042\",\n  \"type\": \"scheduled\",\n  \"scheduledDate\": \"2026-07-01\",\n  \"notes\": \"Quarterly preventive maintenance\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordId\": \"string\",\n  \"equipmentId\": \"string\",\n  \"type\": \"calibration\",\n  \"scheduledDate\": \"1967-02-14\",\n  \"completedDate\": \"2001-01-30\",\n  \"status\": \"completed\",\n  \"notes\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c525d6a3-50da-4a63-846e-1f85e5559de7",
+              "name": "Invalid request body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "maintenance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentId\": \"AMAT-CVD-0042\",\n  \"type\": \"scheduled\",\n  \"scheduledDate\": \"2026-07-01\",\n  \"notes\": \"Quarterly preventive maintenance\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d3bc508-e7bd-4d99-852f-fb861afe1861",
+              "name": "Unauthorized - invalid or missing authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "maintenance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"equipmentId\": \"AMAT-CVD-0042\",\n  \"type\": \"scheduled\",\n  \"scheduledDate\": \"2026-07-01\",\n  \"notes\": \"Quarterly preventive maintenance\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.applied-materials.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb856310-687b-45d9-a9b8-f4b24bfc7651",
+    "name": "Applied Materials Management Equipment Maintenance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing semiconductor manufacturing equipment from Applied Materials, including equipment status monitoring, maintenance scheduling, and process recipe management for CVD, PVD, CMP, Etch, and other fab equipment.\n\nContact Support:\n Name: Applied Materials",
+      "type": "text/plain"
+    }
+  }
+}

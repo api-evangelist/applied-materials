@@ -1,0 +1,395 @@
+{
+  "item": [
+    {
+      "id": "6c0328fe-65f3-41cd-ba9d-3d1a6313acc0",
+      "name": "Equipment",
+      "description": {
+        "content": "Semiconductor manufacturing equipment management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88a4e2a5-3c8a-48a4-b658-400a3fdd0b36",
+          "name": "Applied Materials - List Equipment",
+          "request": {
+            "name": "Applied Materials - List Equipment",
+            "description": {
+              "content": "Returns a list of semiconductor manufacturing equipment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "equipment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by equipment type (CVD, PVD, CMP, Etch)"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by operational status"
+                },
+                {
+                  "disabled": false,
+                  "key": "location",
+                  "value": "<string>",
+                  "description": "Filter by fab location"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "638b4f2d-6b23-444c-8014-262c96b2330e",
+              "name": "A list of equipment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "equipment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"equipmentId\": \"AMAT-CVD-0042\",\n      \"serialNumber\": \"CVD-2022-042-SN\",\n      \"model\": \"Centura 5200\",\n      \"type\": \"CVD\",\n      \"status\": \"operational\",\n      \"location\": \"Fab 1 Bay 3\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87f91c16-bae4-4c30-9bee-aa77eabb51e6",
+              "name": "Unauthorized - invalid or missing authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "equipment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "location",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72fb120f-e86b-4b97-b721-a7d232b1608f",
+          "name": "Applied Materials - Get Equipment",
+          "request": {
+            "name": "Applied Materials - Get Equipment",
+            "description": {
+              "content": "Returns details for a specific piece of equipment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "equipment",
+                ":equipmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "equipmentId",
+                  "description": "(Required) Unique equipment identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d2712f9-03ba-4d05-b258-53e544014cb4",
+              "name": "Equipment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "equipment",
+                    ":equipmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "equipmentId",
+                      "description": "(Required) Unique equipment identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"equipmentId\": \"AMAT-CVD-0042\",\n  \"serialNumber\": \"CVD-2022-042-SN\",\n  \"model\": \"Centura 5200\",\n  \"type\": \"CVD\",\n  \"status\": \"operational\",\n  \"location\": \"Fab 1 Bay 3\",\n  \"installDate\": \"2022-06-15\",\n  \"lastMaintenanceDate\": \"2026-01-10\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd462346-4b64-4046-a896-379f7d57c1ad",
+              "name": "Unauthorized - invalid or missing authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "equipment",
+                    ":equipmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "equipmentId",
+                      "description": "(Required) Unique equipment identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eef51a90-be91-40a6-ba19-278d7fb77eb5",
+              "name": "Equipment not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "equipment",
+                    ":equipmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "equipmentId",
+                      "description": "(Required) Unique equipment identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.applied-materials.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ac8f0748-01ed-426b-89db-255153e06632",
+    "name": "Applied Materials Management Equipment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for managing semiconductor manufacturing equipment from Applied Materials, including equipment status monitoring, maintenance scheduling, and process recipe management for CVD, PVD, CMP, Etch, and other fab equipment.\n\nContact Support:\n Name: Applied Materials",
+      "type": "text/plain"
+    }
+  }
+}

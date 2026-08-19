@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Applied Materials Management Equipment Maintenance API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Maintenance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Applied Materials - List Maintenance Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.applied-materials.com/v1/maintenance",
+            "params": [
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by equipment identifier"
+              }
+            ]
+          },
+          "docs": "Returns a list of maintenance records for equipment"
+        },
+        {
+          "info": {
+            "name": "Applied Materials - Schedule Maintenance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.applied-materials.com/v1/maintenance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedules a maintenance event for a piece of equipment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Applied Materials Management Equipment API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Equipment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Applied Materials - List Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.applied-materials.com/v1/equipment",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by equipment type (CVD, PVD, CMP, Etch)"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by operational status"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Filter by fab location"
+              }
+            ]
+          },
+          "docs": "Returns a list of semiconductor manufacturing equipment"
+        },
+        {
+          "info": {
+            "name": "Applied Materials - Get Equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.applied-materials.com/v1/equipment/:equipmentId",
+            "params": [
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "path",
+                "description": "Unique equipment identifier"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific piece of equipment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
