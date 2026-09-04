@@ -6,8 +6,9 @@ providerId: applied-materials
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-09-04'
+limit_count: 0
 reconciled: false
 tags:
 - Semiconductor
@@ -23,7 +24,20 @@ description: Applied Materials does not publish concrete rate-limit numbers, thr
 notes: No public rate-limit documentation. Limits, throttling, and quotas are negotiated as part of the
   partner integration and are not published in a public developer portal.
 sources:
-- https://www.applied-materials.com
+- https://www.appliedmaterials.com
+- https://appliedsmartfactory.com/llms.txt
+searched: '2026-09-04'
+evidence:
+- url: https://www.appliedmaterials.com/
+  status: 403
+  note: AkamaiGHost blanket 403; no developer documentation reachable.
+- url: https://appliedsmartfactory.com/llms.txt
+  status: 200
+  note: >-
+    597 indexed Applied SmartFactory pages, none of them an API reference. No published
+    rate limits, no documented response headers, no documented exhaustion status code -
+    limit_count is 0. The 429 recorded under responseCodes is a generic expectation, not
+    a value Applied Materials documents.
 responseCodes:
   throttled: 429
 limits:

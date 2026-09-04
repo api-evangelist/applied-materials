@@ -1,4 +1,21 @@
-openapi: 3.0.3
+x-authored-by: API Evangelist
+x-provenance:
+  authored-by: API Evangelist
+  method: generated
+  generated: '2026-09-04'
+  first-party: false
+  note: >-
+    NOT PUBLISHED BY APPLIED MATERIALS. This document was written by an API Evangelist
+    scaffold pass, not harvested from the provider. Applied Materials, Inc. publishes no
+    public developer portal, API reference, or machine-readable contract. Verified
+    2026-09-04: api.appliedmaterials.com, developer.appliedmaterials.com,
+    developers.appliedmaterials.com, docs.appliedmaterials.com and portal.appliedmaterials.com
+    all return NXDOMAIN. The servers[] host in this file, api.applied-materials.com, is NOT a
+    domain Applied Materials operates - applied-materials.com resolves to 121.254.178.252 and
+    times out on connect; the company's real registrable domain is appliedmaterials.com
+    (AkamaiGHost). Treat every path, schema and example here as illustrative, never as a
+    contract Applied Materials serves.
+openapi: 3.2.0
 info:
   title: Applied Materials Management Equipment API
   description: API for managing semiconductor manufacturing equipment from Applied Materials, including equipment status monitoring, maintenance scheduling, and process recipe management for CVD, PVD, CMP, Etch, and other fab equipment.

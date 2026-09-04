@@ -6,8 +6,9 @@ providerId: applied-materials
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-09-04'
+plan_count: 0
 reconciled: false
 tags:
 - Semiconductor
@@ -21,7 +22,20 @@ notes: Applied Materials does not publish a public API pricing page. Equipment i
   through enterprise sales and partner programs; commercial terms are governed by individual customer
   agreements rather than a published plans surface.
 sources:
-- https://www.applied-materials.com
+- https://www.appliedmaterials.com
+- https://appliedsmartfactory.com/llms.txt
+searched: '2026-09-04'
+evidence:
+- url: https://www.appliedmaterials.com/
+  status: 403
+  note: AkamaiGHost blanket 403 to non-browser clients; no pricing page reachable.
+- url: https://appliedsmartfactory.com/llms.txt
+  status: 200
+  note: >-
+    Provider-published llms.txt indexing 597 Applied SmartFactory pages. Zero of them
+    match /pric/ - the SmartFactory product line publishes no pricing or plans page.
+    The single entry in plans[] below is a "contact sales" marker, not a published
+    tier, which is why plan_count is 0.
 plans:
 - id: applied-materials-contact-sales
   name: Contact Sales

@@ -25,19 +25,20 @@ accessModel:
   - authentication
   generated: '2026-09-03'
   method: derived
-modified: '2026-04-19'
+created: '2026-05-04'
+modified: '2026-09-04'
 apis:
 - aid: applied-materials:applied-materials-equipment-api
   name: Applied Materials Equipment API
   description: Semiconductor manufacturing equipment management
-  humanURL: https://www.applied-materials.com
+  humanURL: https://www.appliedmaterials.com
   tags:
   - Equipment
   properties:
   - type: OpenAPI
     url: openapi/applied-materials-equipment-api-openapi.yml
   - type: Website
-    url: https://www.applied-materials.com
+    url: https://www.appliedmaterials.com
   - type: JSONSchema
     url: json-schema/equipment-schema.json
   - type: JSONStructure
@@ -53,14 +54,14 @@ apis:
 - aid: applied-materials:applied-materials-maintenance-api
   name: Applied Materials Maintenance API
   description: Equipment maintenance scheduling and records
-  humanURL: https://www.applied-materials.com
+  humanURL: https://www.appliedmaterials.com
   tags:
   - Maintenance
   properties:
   - type: OpenAPI
     url: openapi/applied-materials-maintenance-api-openapi.yml
   - type: Website
-    url: https://www.applied-materials.com
+    url: https://www.appliedmaterials.com
   - type: JSONSchema
     url: json-schema/equipment-schema.json
   - type: JSONStructure
@@ -74,6 +75,22 @@ apis:
   - type: Vocabulary
     url: vocabulary/applied-materials-vocabulary.yaml
 common:
+  - type: LLMsTxt
+    url: llms/applied-materials-llms.txt
+  - type: Plans
+    url: plans/applied-materials-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/applied-materials-rate-limits.yml
+  - type: FinOps
+    url: finops/applied-materials-finops.yml
+  - type: Website
+    url: https://appliedsmartfactory.com
+  - type: Blog
+    url: https://appliedsmartfactory.com/blog/
+  - type: Support
+    url: https://appliedsmartfactory.com/support/
+  - type: DomainSecurity
+    url: security/applied-materials-domain-security.yml
   - type: AgenticAccess
     url: agentic-access/applied-materials-agentic-access.yml
   - type: Authentication
@@ -81,10 +98,17 @@ common:
   - type: LinkedIn
     url: https://www.linkedin.com/company/applied-materials
   - type: Website
-    url: https://www.applied-materials.com
+    url: https://www.appliedmaterials.com
 description: >-
-  Applied Materials is a global leader in materials engineering solutions used to
-  produce virtually every new chip and advanced display in the world.
+  Applied Materials, Inc. (NASDAQ: AMAT) is the global leader in materials engineering
+  solutions used to produce virtually every new chip and advanced display in the world,
+  supplying deposition, etch, chemical mechanical planarization, ion implantation,
+  metrology and inspection equipment to semiconductor, display and adjacent markets. Its
+  Applied SmartFactory business unit (appliedsmartfactory.com) ships the software side of
+  that portfolio - PROMIS and 300works MES, SPC and process-quality, scheduling,
+  dispatching and material-control products for fabs. Applied Materials publishes no
+  public developer portal, API reference or machine-readable API contract; software is
+  delivered under enterprise licence and support runs through customer portals.
 name: Applied Materials
 tags:
   - Semiconductors
@@ -103,3 +127,36 @@ tags_raw:
 type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/applied-materials.png
 access: 3rd-Party
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+    url: https://apievangelist.com
+x-enrichment:
+  date: '2026-09-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Applied Materials runs no developer program at all - api., developer., developers.,
+    docs., portal., customer., sso. and login..appliedmaterials.com every one returns
+    NXDOMAIN, and the two OpenAPI files already in this repo describe an
+    api.applied-materials.com host that is not an Applied Materials domain (the company's
+    registrable domain is appliedmaterials.com, CAA iodef mailto:dnsadmin@amat.com), so
+    they are API Evangelist scaffolds and are now stamped x-provenance as such.
+  evidence:
+    - url: https://www.appliedmaterials.com/
+      status: 403
+    - url: https://www.appliedmaterials.com/robots.txt
+      status: 403
+    - url: https://appliedsmartfactory.com/llms.txt
+      status: 200
+    - url: https://appliedsmartfactory.com/.well-known/api-catalog
+      status: 404
+    - url: https://appliedsmartfactory.com/.well-known/agent-card.json
+      status: 404
+    - url: https://api.applied-materials.com/
+      status: 0
+  checked: '2026-09-04'

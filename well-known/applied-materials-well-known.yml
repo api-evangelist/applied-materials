@@ -1,0 +1,97 @@
+specification: API Evangelist Well-Known Probe
+specificationVersion: '0.1'
+provider: Applied Materials
+providerId: applied-materials
+generated: '2026-09-04'
+method: probed
+source: >-
+  Direct HTTP probe of the RFC 8615 /.well-known/ namespace on every host this record
+  knows, 2026-09-04, browser User-Agent, redirects followed.
+summary:
+  documents_served: 0
+  note: >-
+    No /.well-known/ document is served by Applied Materials on any host. The primary
+    domain appliedmaterials.com sits behind AkamaiGHost, which answers 403 Access Denied
+    to every path including /robots.txt, so absence there is UNPROVEN rather than
+    confirmed. appliedsmartfactory.com (the Applied SmartFactory business unit) is fully
+    readable and returns a genuine 404 on every path - that absence IS confirmed.
+    jobs.appliedmaterials.com answers HTTP 200 with the same SPA HTML shell for every
+    /.well-known/ path, including paths that cannot exist; those 200s are catch-all
+    responses, not documents, and are recorded as misses. No WellKnown or SecurityTxt
+    pointer is emitted, because nothing real was served.
+hosts:
+- host: appliedmaterials.com
+  note: AkamaiGHost blanket 403 to non-browser clients; absence unproven.
+  documents:
+  - { path: /.well-known/security.txt, status: 403, file: null }
+  - { path: /.well-known/openid-configuration, status: 403, file: null }
+  - { path: /.well-known/oauth-authorization-server, status: 403, file: null }
+  - { path: /.well-known/oauth-protected-resource, status: 403, file: null }
+  - { path: /.well-known/api-catalog, status: 403, file: null }
+  - { path: /.well-known/ai-plugin.json, status: 403, file: null }
+  - { path: /.well-known/agent-card.json, status: 403, file: null }
+  - { path: /.well-known/agent.json, status: 403, file: null }
+  - { path: /.well-known/aauth-resource.json, status: 403, file: null }
+- host: www.appliedmaterials.com
+  note: Same Akamai edge policy as the apex.
+  documents:
+  - { path: /.well-known/security.txt, status: 403, file: null }
+  - { path: /.well-known/openid-configuration, status: 403, file: null }
+  - { path: /.well-known/oauth-authorization-server, status: 403, file: null }
+  - { path: /.well-known/oauth-protected-resource, status: 403, file: null }
+  - { path: /.well-known/api-catalog, status: 403, file: null }
+  - { path: /.well-known/ai-plugin.json, status: 403, file: null }
+  - { path: /.well-known/agent-card.json, status: 403, file: null }
+  - { path: /.well-known/agent.json, status: 403, file: null }
+  - { path: /.well-known/aauth-resource.json, status: 403, file: null }
+- host: appliedsmartfactory.com
+  note: >-
+    Applied SmartFactory, an Applied Materials business unit (footer reads
+    "(c) 2026 Applied Materials, All Rights Reserved"). WordPress; readable; genuine 404s.
+  documents:
+  - { path: /.well-known/security.txt, status: 404, file: null }
+  - { path: /.well-known/openid-configuration, status: 404, file: null }
+  - { path: /.well-known/oauth-authorization-server, status: 404, file: null }
+  - { path: /.well-known/oauth-protected-resource, status: 404, file: null }
+  - { path: /.well-known/api-catalog, status: 404, file: null }
+  - { path: /.well-known/ai-plugin.json, status: 404, file: null }
+  - { path: /.well-known/agent-card.json, status: 404, file: null }
+  - { path: /.well-known/agent.json, status: 404, file: null }
+  - { path: /.well-known/aauth-resource.json, status: 404, file: null }
+- host: www.appliedsmartfactory.com
+  documents:
+  - { path: /.well-known/security.txt, status: 404, file: null }
+  - { path: /.well-known/openid-configuration, status: 404, file: null }
+  - { path: /.well-known/oauth-authorization-server, status: 404, file: null }
+  - { path: /.well-known/oauth-protected-resource, status: 404, file: null }
+  - { path: /.well-known/api-catalog, status: 404, file: null }
+  - { path: /.well-known/ai-plugin.json, status: 404, file: null }
+  - { path: /.well-known/agent-card.json, status: 404, file: null }
+  - { path: /.well-known/agent.json, status: 404, file: null }
+  - { path: /.well-known/aauth-resource.json, status: 404, file: null }
+- host: jobs.appliedmaterials.com
+  note: >-
+    FALSE POSITIVE GUARD - every path below returns HTTP 200 carrying the careers-site
+    single-page-app HTML shell, not a document. Recorded as served-nothing.
+  documents:
+  - { path: /.well-known/security.txt, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/openid-configuration, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/oauth-authorization-server, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/oauth-protected-resource, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/api-catalog, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/ai-plugin.json, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/agent-card.json, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/agent.json, status: 200, file: null, body: html-spa-shell, document: false }
+  - { path: /.well-known/aauth-resource.json, status: 200, file: null, body: html-spa-shell, document: false }
+- host: investors.appliedmaterials.com
+  note: Akamai edge policy, same as the corporate site.
+  documents:
+  - { path: /.well-known/security.txt, status: 403, file: null }
+  - { path: /.well-known/openid-configuration, status: 403, file: null }
+  - { path: /.well-known/oauth-authorization-server, status: 403, file: null }
+  - { path: /.well-known/oauth-protected-resource, status: 403, file: null }
+  - { path: /.well-known/api-catalog, status: 403, file: null }
+  - { path: /.well-known/ai-plugin.json, status: 403, file: null }
+  - { path: /.well-known/agent-card.json, status: 403, file: null }
+  - { path: /.well-known/agent.json, status: 403, file: null }
+  - { path: /.well-known/aauth-resource.json, status: 403, file: null }
