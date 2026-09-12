@@ -1,0 +1,14 @@
+{
+  "repo": "applied-materials",
+  "feeds": [
+    {
+      "source": "https://appliedsmartfactory.com",
+      "feed_url": "https://appliedsmartfactory.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-06T19:17:18Z"
+}
