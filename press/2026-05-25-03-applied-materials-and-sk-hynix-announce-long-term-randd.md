@@ -1,7 +1,9 @@
 ---
 title: Applied Materials and SK hynix Announce Long-Term R&D ...
 url: https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-and-sk-hynix-announce-long-term-rd-partnership
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Applied Materials" press release artificial intelligence'
 position: 3
 source: serpapi-google

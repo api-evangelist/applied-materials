@@ -1,8 +1,7 @@
 {
   "provider": "applied-materials",
   "sources": [
-    "applied-materials-equipment-api-openapi.yml",
-    "applied-materials-maintenance-api-openapi.yml"
+    "_original/applied-materials-openapi.yaml"
   ],
   "outputs": [
     "applied-materials-equipment-api-openapi.yml",
@@ -12,9 +11,12 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "applied-materials-equipment-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "applied-materials-maintenance-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "applied-materials-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "applied-materials-equipment-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "applied-materials-maintenance-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

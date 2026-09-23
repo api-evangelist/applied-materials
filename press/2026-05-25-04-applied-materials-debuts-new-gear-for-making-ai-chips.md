@@ -1,7 +1,9 @@
 ---
 title: Applied Materials Debuts New Gear For Making AI Chips
 url: https://www.investors.com/news/technology/amat-stock-applied-materials-new-gear-ai-chips/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Applied Materials" press release artificial intelligence'
 position: 4
 source: serpapi-google

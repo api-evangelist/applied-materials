@@ -1,7 +1,9 @@
 ---
 title: Applied Materials and Micron Partner To Advance U.S. ...
 url: https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-and-micron-partner-advance-us-innovation-next
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Applied Materials" press release artificial intelligence'
 position: 1
 source: serpapi-google
