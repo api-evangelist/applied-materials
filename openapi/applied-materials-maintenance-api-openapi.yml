@@ -89,6 +89,32 @@ paths:
           description: Unauthorized - invalid or missing authentication token
 components:
   schemas:
+    MaintenanceRequest:
+      title: MaintenanceRequest
+      description: Request body for scheduling equipment maintenance
+      type: object
+      required:
+      - equipmentId
+      - type
+      - scheduledDate
+      properties:
+        equipmentId:
+          type: string
+          description: Equipment to schedule maintenance for
+        type:
+          type: string
+          enum:
+          - scheduled
+          - emergency
+          - calibration
+          description: Type of maintenance to schedule
+        scheduledDate:
+          type: string
+          format: date
+          description: Date to schedule the maintenance
+        notes:
+          type: string
+          description: Additional notes about the maintenance
     MaintenanceRecord:
       title: MaintenanceRecord
       description: A maintenance event record for semiconductor equipment
@@ -126,32 +152,6 @@ components:
         notes:
           type: string
           description: Maintenance notes and observations
-    MaintenanceRequest:
-      title: MaintenanceRequest
-      description: Request body for scheduling equipment maintenance
-      type: object
-      required:
-      - equipmentId
-      - type
-      - scheduledDate
-      properties:
-        equipmentId:
-          type: string
-          description: Equipment to schedule maintenance for
-        type:
-          type: string
-          enum:
-          - scheduled
-          - emergency
-          - calibration
-          description: Type of maintenance to schedule
-        scheduledDate:
-          type: string
-          format: date
-          description: Date to schedule the maintenance
-        notes:
-          type: string
-          description: Additional notes about the maintenance
   securitySchemes:
     bearerAuth:
       type: http
