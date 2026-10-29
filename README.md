@@ -1,9 +1,4 @@
-# Applied Materials (applied-materials)
-
-## Not published by Applied Materials
-
-Applied Materials doesn't publish a public API or developer program. This profile previously carried "Equipment" and "Maintenance" API contracts and derived files that an API Evangelist scaffold pass wrote, on a host (`api.applied-materials.com`) that isn't an Applied Materials domain. They were quarantined on 2026-10-22; see [`_scaffold/README.md`](_scaffold/README.md). There is no public API reference, base URL, OpenAPI, pricing or rate limit to list.
-
+# Applied Materials
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -69,57 +64,157 @@ Applied Materials doesn't publish a public API or developer program. This profil
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Applied Materials is a global leader in materials engineering solutions used to produce virtually every new chip and advanced display in the world. They provide semiconductor manufacturing equipment, services, and software for CVD, PVD, CMP, Etch, implant, and other fab processes.
+Applied Materials, Inc. (NASDAQ: AMAT) is the global leader in materials engineering solutions used to produce virtually every new chip and advanced display in the world, supplying deposition, etch, chemical mechanical planarization, ion implantation, metrology and inspection equipment to semiconductor, display and adjacent markets. Its Applied SmartFactory business unit (appliedsmartfactory.com) ships the software side of that portfolio - PROMIS and 300works MES, SPC and process-quality, scheduling, dispatching and material-control products for fabs. Applied Materials publishes no public developer portal, API reference or machine-readable API contract; software is delivered under enterprise licence and support runs through customer portals.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/applied-materials/refs/heads/main/apis.yml)
+**Areas:** Semiconductors · Manufacturing · Equipment · Fab Operations · Materials Engineering · Fortune 500
 
-## Scope of Coverage
+## Applied Materials on APIs.io
 
-| Item | Count |
-|------|-------|
-| APIs | 1 |
-| OpenAPI Specs | 1 |
-| JSON Schemas | 1 |
-| JSON Structures | 1 |
-| Examples | 1 |
-| JSON-LD Contexts | 1 |
-| Spectral Rulesets | 1 |
-| Naftiko Capabilities | 2 |
-| Vocabularies | 1 |
+Everything profiled for Applied Materials is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/applied-materials/](https://apis.io/providers/applied-materials/)** — or go straight to one of the APIs or properties below.
 
-## APIs Covered
+### APIs (2)
 
-- **Applied Materials API** — Equipment management API for semiconductor manufacturing tools, maintenance scheduling, and fab operations.
+- [Applied Materials Equipment API](https://apis.io/apis/applied-materials/applied-materials-equipment-api/) — Semiconductor manufacturing equipment management
+- [Applied Materials Maintenance API](https://apis.io/apis/applied-materials/applied-materials-maintenance-api/) — Equipment maintenance scheduling and records
 
-## Artifacts
+### Published properties
 
-### OpenAPI Specifications
-- [openapi/applied-materials-openapi.yaml](openapi/applied-materials-openapi.yaml)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### JSON Schemas
-- [json-schema/equipment-schema.json](json-schema/equipment-schema.json)
+#### Agentic access (1)
 
-### JSON Structures
-- [json-structure/equipment-structure.json](json-structure/equipment-structure.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Examples
-- [examples/equipment-example.json](examples/equipment-example.json)
+- [Applied Materials Agentic Access](https://apis.io/agentic-access/applied-materials/applied-materials-agentic-access/)
 
-### JSON-LD
-- [json-ld/applied-materials-context.jsonld](json-ld/applied-materials-context.jsonld)
+#### JSON Schema (1)
 
-### Spectral Rules
-- [rules/applied-materials-spectral-rules.yml](rules/applied-materials-spectral-rules.yml)
+The data models the API reads and writes.
 
-### Naftiko Capabilities
-- [capabilities/shared/applied-materials-api.yaml](capabilities/shared/applied-materials-api.yaml)
-- [capabilities/equipment-monitoring.yaml](capabilities/equipment-monitoring.yaml)
+- [Equipment](https://apis.io/schemas/applied-materials/equipment/)
 
-### Vocabulary
-- [vocabulary/applied-materials-vocabulary.yaml](vocabulary/applied-materials-vocabulary.yaml)
+#### JSON Structure (1)
 
-## Maintainers
+Data models expressed in JSON Structure.
 
-**FN:** API Evangelist
+- [Equipment Structure](https://apis.io/json-structure/applied-materials/equipment-structure/)
 
-**Email:** info@apievangelist.com
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Applied Materials Context](https://apis.io/jsonld/applied-materials/applied-materials-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Applied Materials Vocabulary](https://apis.io/vocabularies/applied-materials/applied-materials-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Equipment Example](https://apis.io/examples/applied-materials/equipment-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Applied Materials Management Equipment API](https://apis.io/collections/applied-materials/open-applied-materials-equipment-api/)
+- [Applied Materials Management Equipment Maintenance API](https://apis.io/collections/applied-materials/open-applied-materials-maintenance-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Applied Materials — jsonschema rules](https://apis.io/rules/applied-materials/applied-materials-jsonschema-spectral-rules/)
+- [Applied Materials API Rules](https://apis.io/rules/applied-materials/applied-materials-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Applied Materials Authentication](https://apis.io/security/applied-materials/applied-materials-authentication/)
+- [Applied Materials Domain Security](https://apis.io/security/applied-materials/applied-materials-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Applied Materials Plans Pricing](https://apis.io/plans/applied-materials/applied-materials-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Applied Materials Rate Limits](https://apis.io/rate-limits/applied-materials/applied-materials-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Applied Materials Finops](https://apis.io/finops/applied-materials/applied-materials-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://appliedsmartfactory.com)
+- [Support](https://appliedsmartfactory.com/support/)
+- [Blog](https://appliedsmartfactory.com/blog/)
+
+## API Evangelist rating
+
+**Kin Score 4.9** — minimal · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/applied-materials/](https://apis.io/providers/applied-materials/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Applied Materials: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/applied-materials/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
